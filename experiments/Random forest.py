@@ -9,7 +9,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder
 
 # 1. Загружаем обучающие данные
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parents[1]
 TRAIN_PATH = BASE_DIR / "data" / "train.csv"
 
 train = pd.read_csv(TRAIN_PATH)

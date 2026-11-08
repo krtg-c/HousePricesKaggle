@@ -1,7 +1,19 @@
-1. random forest - rmse - 0.14052, std - 0.02441
-2. CatBoost - rmse - 0.11991, std - 0.02225
-3. XGBoost - rmse - 0.11865, std - 0.02051
-4. XGBoost + Sample weights - rmse - 0.12073, std - 0.02061
-5. XGBoost + Pseudo-Huber - rmse - 0.11856, std - 0.01975
-6. MLP - rmse - 0.14127, std - 0.02469
-7. TabPFN 3.5 - rmse - 0.10996, std - 0.02052 -
+# Результаты экспериментов
+
+Все модели оценены по Log RMSE на одинаковом `KFold`:
+10 фолдов, перемешивание данных и `random_state=42`.
+Чем меньше значение Log RMSE, тем лучше модель.
+
+1. | Модель | Mean CV | Std CV |
+2. | Linear Regression | 0.14819 | 0.04572 |
+3. | Random Forest | 0.14052 | 0.02441 |
+4. | MLP | 0.14199 | 0.02572 |
+5. | CatBoost | 0.12155 | 0.02091 |
+6. | XGBoost + sample weights | 0.12073 | 0.02061 |
+7. | XGBoost | 0.11865 | 0.02051 |
+8. | XGBoost + Pseudo-Huber | 0.11856 | 0.01975 |
+9. | TabPFN | 0.10886 | 0.01967 |
+
+TabPFN показал лучшую метрику, но его CV работает медленно на CPU.
+По умолчанию в `config.py` выбран XGBoost: он немного слабее,
+но заметно быстрее и удобнее для обычного воспроизводимого запуска.

@@ -2,8 +2,10 @@
 .idea/
 __pycache__/
 *.pyc
+.ipynb_checkpoints/
 .env
 
 models/
 submissions/
+catboost_info/
 data/*.csv
